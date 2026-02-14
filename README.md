@@ -1,2 +1,2 @@
-# workerRegister
-Worker Register Application
+# Employee Management System
+Employee Register Application
