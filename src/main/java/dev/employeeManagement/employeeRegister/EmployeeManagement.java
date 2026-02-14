@@ -1,13 +1,13 @@
-package dev.workerRegis.workRegister;
+package dev.employeeManagement.employeeRegister;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WorkRegisterApplication {
+public class EmployeeManagement {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WorkRegisterApplication.class, args);
+		SpringApplication.run(EmployeeManagement.class, args);
 	}
 
 }
