@@ -3,9 +3,11 @@ package dev.employeeManagement.employeeRegister.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.GenerationType;
 
 @Entity
+@Table(name = "employees")
 public class EmployeeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +18,16 @@ public class EmployeeModel {
     private String password;
     private String role;
     private String phoneNumber;
+    private Integer age;
+    private String department;
+    private String testField;
+
 
     public EmployeeModel() {
     }
 
     public EmployeeModel(Long id, String firstName, String lastName, String email, String password, String role,
-            String phoneNumber) {
+            String phoneNumber, Integer age, String department) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,6 +35,8 @@ public class EmployeeModel {
         this.password = password;
         this.role = role;
         this.phoneNumber = phoneNumber;
+        this.age = age;
+        this.department = department;
     }
 
     public Long getId() {
@@ -85,6 +93,22 @@ public class EmployeeModel {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
     
 }
