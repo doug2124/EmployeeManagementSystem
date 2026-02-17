@@ -20,7 +20,6 @@ public class EmployeeModel {
     private String phoneNumber;
     private Integer age;
     private String department;
-    private String testField;
 
 
     public EmployeeModel() {

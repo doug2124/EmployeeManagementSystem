@@ -12,13 +12,15 @@ public class DepartmentModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private Integer employeeCount;
 
     public DepartmentModel() {
     }
 
-    public DepartmentModel(Long id, String name) {
+    public DepartmentModel(Long id, String name,Integer employeeCount) {
         this.id = id;
         this.name = name;
+        this.employeeCount = employeeCount;
     }
 
     public Long getId() {
@@ -36,5 +38,13 @@ public class DepartmentModel {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    public Integer getEmployeeCount() {
+        return employeeCount;
+    }
+
+    public void setEmployeeCount(Integer employeeCount) {
+        this.employeeCount = employeeCount;
+    }
+     
 }
