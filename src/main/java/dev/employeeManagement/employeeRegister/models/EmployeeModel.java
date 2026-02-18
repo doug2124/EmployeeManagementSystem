@@ -20,13 +20,14 @@ public class EmployeeModel {
     private String phoneNumber;
     private Integer age;
     private String department;
+    private Float salary;
 
 
     public EmployeeModel() {
     }
 
     public EmployeeModel(Long id, String firstName, String lastName, String email, String password, String role,
-            String phoneNumber, Integer age, String department) {
+            String phoneNumber, Integer age, String department, Float salary) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -108,6 +109,14 @@ public class EmployeeModel {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public Float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Float salary) {
+        this.salary = salary;
     }
     
 }

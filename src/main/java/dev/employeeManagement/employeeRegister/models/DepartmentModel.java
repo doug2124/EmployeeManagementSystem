@@ -46,5 +46,4 @@ public class DepartmentModel {
     public void setEmployeeCount(Integer employeeCount) {
         this.employeeCount = employeeCount;
     }
-     
 }
