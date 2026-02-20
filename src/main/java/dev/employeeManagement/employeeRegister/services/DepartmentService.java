@@ -17,4 +17,7 @@ public class DepartmentService {
     public DepartmentModel save(DepartmentModel department){
         return departmentRepository.save(department);
     }
+    public void delete(Long id){
+        departmentRepository.deleteById(id);
+    }
 }
