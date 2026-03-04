@@ -24,7 +24,7 @@ public class EmployeeService {
     public void delete(Long id){
         employeeRepository.deleteById(id);
     }
-    public EmployeeModel update(long id, EmployeeUpdateDto fields){
+    public EmployeeModel patch(long id, EmployeeUpdateDto fields){
         EmployeeModel employee=employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found with id "+id));
         if(fields.getFirstName()!=null){
             employee.setFirstName(fields.getFirstName());
@@ -57,5 +57,22 @@ public class EmployeeService {
             employeeRepository.save(employee);
     });
     return employeeRepository.save(employee);
+    }
+    public EmployeeModel update(Long id, EmployeeModel entity){
+        return employeeRepository.findById(id).map(employee->{
+            employee.setFirstName(employee.getFirstName());
+            employee.setLastName(employee.getLastName());
+            employee.setEmail(employee.getEmail());
+            employee.setPassword(employee.getPassword());
+            employee.setRole(employee.getRole());
+            employee.setPhoneNumber(employee.getPhoneNumber());
+            employee.setAge(employee.getAge());
+            employee.setDepartment(employee.getDepartment());
+            employee.setSalary(employee.getSalary());
+            return employeeRepository.save(entity);
+        }).orElseGet(()->{
+            entity.setId(id);
+            return employeeRepository.save(entity);
+        });
     }
 }

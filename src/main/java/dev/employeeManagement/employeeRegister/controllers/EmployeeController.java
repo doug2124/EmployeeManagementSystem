@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import dev.employeeManagement.employeeRegister.services.*;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
-import dev.employeeManagement.employeeRegister.models.*;
 import dev.employeeManagement.employeeRegister.dto.*;
+import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
@@ -39,8 +39,12 @@ public class EmployeeController {
         employeeService.delete(id);
     }
     @PatchMapping("/{id}")
-    public EmployeeModel update(@PathVariable Long id,@RequestBody EmployeeUpdateDto fields){
-        return employeeService.update(id,fields);
+    public EmployeeModel patch(@PathVariable Long id,@RequestBody EmployeeUpdateDto fields){
+        return employeeService.patch(id,fields);
+    }
+    @PutMapping("/{id")
+    public EmployeeModel update(@PathVariable Long id, @RequestBody EmployeeModel entity){
+        return employeeService.update(id,entity);
     }
 }
     
