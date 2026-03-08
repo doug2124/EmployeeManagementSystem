@@ -42,7 +42,7 @@ public class EmployeeController {
     public EmployeeModel patch(@PathVariable Long id,@RequestBody EmployeeUpdateDto fields){
         return employeeService.patch(id,fields);
     }
-    @PutMapping("/{id")
+    @PutMapping("/{id}")
     public EmployeeModel update(@PathVariable Long id, @RequestBody EmployeeModel entity){
         return employeeService.update(id,entity);
     }
