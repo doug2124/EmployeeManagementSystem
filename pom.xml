@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.workerRegis</groupId>
-	<artifactId>workRegister</artifactId>
+	<artifactId>employeeRegister</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>workRegister</name>
+	<name>employeeRegister</name>
 	<description>worker registration application</description>
 	<url/>
 	<licenses>

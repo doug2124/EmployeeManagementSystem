@@ -13,11 +13,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.*;
 import dev.employeeManagement.employeeRegister.models.*;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import dev.employeeManagement.employeeRegister.dto.*;
+import org.springframework.web.bind.annotation.PutMapping;
+
 @RestController
 @RequestMapping("/departments")
+@CrossOrigin(origins = "*")
 public class DepartmentController {
     private final DepartmentService departmentService;
 
@@ -28,6 +33,10 @@ public class DepartmentController {
     public List<DepartmentModel> getAllDepartments() {
         return departmentService.getAllDepartments();
     }
+    @GetMapping("/{id}")
+    public DepartmentModel search(@PathVariable Long id){
+        return departmentService.search(id);
+    }
     @PostMapping
     public DepartmentModel save(@RequestBody DepartmentModel department) {
         return departmentService.save(department);
@@ -36,9 +45,12 @@ public class DepartmentController {
     public void delete(@PathVariable Long id){
         departmentService.delete(id);
     }
-
     @PatchMapping("/{id}")
     public DepartmentModel patch(@PathVariable long id,@RequestBody DepartmentPatchDto entity){
         return departmentService.patch(id,entity);
+    }
+    @PutMapping("path/{id}")
+    public DepartmentModel update(@PathVariable Long id, @RequestBody DepartmentModel entity) {
+        return departmentService.update(id,entity);
     }
 }

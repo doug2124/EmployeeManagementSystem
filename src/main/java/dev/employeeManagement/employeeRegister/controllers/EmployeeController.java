@@ -11,12 +11,15 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import dev.employeeManagement.employeeRegister.services.*;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import dev.employeeManagement.employeeRegister.dto.*;
 import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 @RequestMapping("/employees")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
 
     private final EmployeeService employeeService;

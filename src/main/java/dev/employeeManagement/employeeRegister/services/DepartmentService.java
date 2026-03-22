@@ -15,6 +15,11 @@ public class DepartmentService {
     public List<DepartmentModel>getAllDepartments(){
         return departmentRepository.findAll();
     }
+    public DepartmentModel search(Long id){
+        return departmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Department not found"));
+    }
+    
     public DepartmentModel save(DepartmentModel department){
         return departmentRepository.save(department);
     }
@@ -30,5 +35,15 @@ public class DepartmentService {
             department.setEmployeeCount(entity.getEmployeeCount());
         }
         return departmentRepository.save(department);
+    }
+    public DepartmentModel update(Long id, DepartmentModel entity){
+        return departmentRepository.findById(id).map(department->{
+            department.setEmployeeCount(entity.getEmployeeCount());
+            department.setName(entity.getName());
+            return departmentRepository.save(entity);
+        }).orElseGet(()->{
+            entity.setId(id);
+            return departmentRepository.save(entity);
+        });
     }
 }
